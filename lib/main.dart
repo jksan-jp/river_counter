@@ -10,13 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return MaterialApp(home: Home());
   }
 }
 
@@ -28,6 +22,16 @@ class Home extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(title: const Text('Counter example')),
+      body: Center(child: Consumer(
+        builder: (context, ref, child) {
+          final count = ref.watch(counterProvider.state).state;
+          return Text('$count');
+        },
+      )),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => ref.read(counterProvider.state).state++,
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
