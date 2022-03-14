@@ -23,6 +23,15 @@ class MyApp extends StatelessWidget {
 /// Providers are declared globally and specify how to create a state
 final counterProvider = StateProvider((ref) => 0);
 
+class Home extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Counter example')),
+    );
+  }
+}
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
