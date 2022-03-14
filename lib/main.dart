@@ -20,6 +20,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// Providers are declared globally and specify how to create a state
+final counterProvider = StateProvider((ref) => 0);
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
